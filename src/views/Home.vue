@@ -14,7 +14,10 @@
       </ion-header>
     
       <div id="container">
-        <strong>Ready to create an app?</strong>
+        <div class="row">
+          <img :src="logo" alt="">
+        </div>
+        <strong>Ready to create an app using Ionic and Vue.JS?</strong>
         <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
       </div>
     </ion-content>
@@ -24,6 +27,7 @@
 <script>
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 import { defineComponent } from 'vue';
+import logo from '@/assets/img/logo.png'
 
 export default defineComponent({
   name: 'Home',
@@ -33,6 +37,11 @@ export default defineComponent({
     IonPage,
     IonTitle,
     IonToolbar
+  },
+  data(){
+    return {
+      logo: logo
+    }
   }
 });
 </script>
