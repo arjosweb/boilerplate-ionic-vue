@@ -2,14 +2,14 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Blank</ion-title>
+        <ion-title>{{ module.page_title }}</ion-title>
       </ion-toolbar>
     </ion-header>
     
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Blank</ion-title>
+          <ion-title size="large">{{ module.page_title }}</ion-title>
         </ion-toolbar>
       </ion-header>
     
@@ -17,8 +17,8 @@
         <div class="row">
           <img :src="logo" alt="">
         </div>
-        <strong>Ready to create an app using Ionic and Vue.JS?</strong>
-        <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+        <strong>{{ module.title }}</strong>
+        <p>{{ module.text_1 }} <a target="_blank" rel="noopener noreferrer" :href="module.link">{{ module.text_2 }}</a></p>
       </div>
     </ion-content>
   </ion-page>
@@ -28,6 +28,7 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import logo from '@/assets/img/logo.png'
+import {mapState} from "vuex";
 
 export default defineComponent({
   name: 'Home',
@@ -42,6 +43,9 @@ export default defineComponent({
     return {
       logo: logo
     }
+  },
+  computed: {
+    ...mapState(['module'])
   }
 });
 </script>
